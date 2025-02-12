@@ -9,15 +9,15 @@ const HeroSection = () => {
   const t = translations[language];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-white pt-16">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-blue-50 pt-16">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-48 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50 to-purple-50 rounded-full opacity-20 blur-3xl" />
+        <div className="absolute -top-48 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-50 to-blue-100 rounded-full opacity-30 blur-3xl" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="animate-fade-in opacity-0" style={{ animationDelay: "0.2s" }}>
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold bg-white rounded-full shadow-sm border border-gray-100">
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold bg-accent text-primary rounded-full shadow-sm">
               {t.hero.badge}
             </span>
           </div>
@@ -34,7 +34,7 @@ const HeroSection = () => {
             <Button className="bg-primary text-white hover:bg-primary/90 h-12 px-8 text-lg">
               {t.hero.getStarted} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="h-12 px-8 text-lg">
+            <Button variant="outline" className="h-12 px-8 text-lg border-primary text-primary hover:bg-primary/5">
               {t.hero.viewProducts}
             </Button>
           </div>
