@@ -2,44 +2,31 @@
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Users, Shield } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
 
 const UseCases = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const useCases = [
     {
-      title: "Facilities Access Control",
-      description: "Comprehensive wireless access control system for managing multiple entry points",
+      title: t.useCases.facilities.title,
+      description: t.useCases.facilities.description,
       icon: Building2,
-      details: [
-        "Wireless operation up to hundreds of meters",
-        "Support for multiple RFID formats",
-        "Group-based access management",
-        "Time-based access rules",
-        "Handles hundreds of users and locks",
-      ],
+      details: t.useCases.facilities.details,
     },
     {
-      title: "Employee Time Tracking",
-      description: "Advanced time and attendance system with multi-point verification",
+      title: t.useCases.timeTracking.title,
+      description: t.useCases.timeTracking.description,
       icon: Users,
-      details: [
-        "Multi-point clock in/out capability",
-        "Photo verification system",
-        "Physical presence confirmation",
-        "Real-time attendance monitoring",
-        "Automated time tracking",
-      ],
+      details: t.useCases.timeTracking.details,
     },
     {
-      title: "Maintenance & Surveillance Check-in",
-      description: "Reliable system for tracking and logging maintenance and security rounds",
+      title: t.useCases.maintenance.title,
+      description: t.useCases.maintenance.description,
       icon: Shield,
-      details: [
-        "Real-time round tracking",
-        "Detailed activity logging",
-        "Performance monitoring",
-        "Route optimization",
-        "Compliance reporting",
-      ],
+      details: t.useCases.maintenance.details,
     },
   ];
 
@@ -49,9 +36,9 @@ const UseCases = () => {
       <div className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-primary mb-4">Use Cases</h1>
+            <h1 className="text-4xl font-bold text-primary mb-4">{t.useCases.title}</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover how our RFID solutions can transform your operations
+              {t.useCases.subtitle}
             </p>
           </div>
 

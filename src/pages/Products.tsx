@@ -2,41 +2,31 @@
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Fingerprint, Clock, ClipboardCheck } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
 
 const Products = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const products = [
     {
-      title: "Access Control Module",
-      description: "Secure entry management system supporting keyfobs, cards, and bracelets",
+      title: t.products.accessControl.title,
+      description: t.products.accessControl.description,
       icon: Fingerprint,
-      features: [
-        "Wireless RFID reading capabilities",
-        "Multi-format identifier support",
-        "Real-time access management",
-        "Advanced security protocols",
-      ],
+      features: t.products.accessControl.features,
     },
     {
-      title: "Time Tracking Module",
-      description: "Accurate employee time tracking system with advanced clock in/out features",
+      title: t.products.timeTracking.title,
+      description: t.products.timeTracking.description,
       icon: Clock,
-      features: [
-        "Precise attendance tracking",
-        "Multiple check-point support",
-        "Real-time monitoring",
-        "Automated reporting",
-      ],
+      features: t.products.timeTracking.features,
     },
     {
-      title: "Check-in Module",
-      description: "Comprehensive system for tracking surveillance and maintenance rounds",
+      title: t.products.checkIn.title,
+      description: t.products.checkIn.description,
       icon: ClipboardCheck,
-      features: [
-        "Route optimization",
-        "Real-time monitoring",
-        "Detailed activity logs",
-        "Performance analytics",
-      ],
+      features: t.products.checkIn.features,
     },
   ];
 
@@ -46,9 +36,9 @@ const Products = () => {
       <div className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-primary mb-4">Our Products</h1>
+            <h1 className="text-4xl font-bold text-primary mb-4">{t.products.title}</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Advanced RFID solutions designed for modern business needs
+              {t.products.subtitle}
             </p>
           </div>
 
