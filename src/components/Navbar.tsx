@@ -1,17 +1,25 @@
 
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Globe } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/utils/translations";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const t = translations[language];
 
   const navItems = [
-    { label: "Products", href: "/products" },
-    { label: "Use Cases", href: "/use-cases" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: t.nav.products, href: "/products" },
+    { label: t.nav.useCases, href: "/use-cases" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'es' : 'en');
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -35,12 +43,25 @@ const Navbar = () => {
               </a>
             ))}
             <Button className="bg-primary text-white hover:bg-primary/90">
-              Request Demo
+              {t.nav.requestDemo}
             </Button>
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100"
+            >
+              <Globe className="h-5 w-5" />
+              <span className="sr-only">Toggle Language</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100"
+            >
+              <Globe className="h-5 w-5" />
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md text-gray-600 hover:text-primary hover:bg-gray-100"
@@ -66,7 +87,7 @@ const Navbar = () => {
             ))}
             <div className="px-3 py-2">
               <Button className="w-full bg-primary text-white hover:bg-primary/90">
-                Request Demo
+                {t.nav.requestDemo}
               </Button>
             </div>
           </div>
